@@ -44,6 +44,7 @@ pipeline {
         input 'Voulez vous continuer ?'
         bat 'javaw -jar target/testing-web-complete.jar'
         echo 'deploiement reussi'
+        emailext(subject: '${env.BUILD_ID} - ${currentBuild.result}', body: '${env.BUILD_ID} - ${env.JENKINS_URL}', to: 'klor97250@gmail.com')
       }
     }
 
